@@ -1,0 +1,85 @@
+{
+  "logo": "https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2019/06/organic-store-logo5.svg",
+  "navbar": [
+    {
+      "left_links": [
+        { "id": 1, "item": "Everything", "path_name": "shop", "path": "" },
+        {
+          "id": 2,
+          "item": "Grocieries",
+          "path_name": "grocieries",
+          "path": "/product-category"
+        },
+        {
+          "id": 3,
+          "item": "Juice",
+          "path_name": "juice",
+          "path": "/product-category"
+        }
+      ]
+    },
+    {
+      "right_links": [
+        { "id": 1, "item": "About", "path": "/about" },
+        { "id": 2, "item": "Contact", "path": "/contact" }
+      ]
+    }
+  ],
+  "service_data": [
+    {
+      "id": 1,
+      "item_name": "Free Shipping",
+      "item_desc": "Above $5 Only",
+      "icon": "fa-solid fa-truck"
+    },
+    {
+      "id": 2,
+      "item_name": "Certified Organic",
+      "item_desc": "100% Guarantee",
+      "icon": "fa-solid fa-address-book"
+    },
+    {
+      "id": 3,
+      "item_name": "Huge Savings",
+      "item_desc": "At Lowest Price",
+      "icon": "fa-solid fa-money-check-dollar"
+    },
+    {
+      "id": 4,
+      "item_name": "Easy Returns",
+      "item_desc": "No Questions Asked",
+      "icon": "fa-solid fa-recycle"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "category": "grocieries",
+      "product_name": "Assorted Coffee",
+      "price": 35.0,
+      "image": "https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted-300x300.jpg"
+    },
+    {
+      "id": 2,
+      "category": "grocieries",
+      "product_name": "Hand Santizer",
+      "price": 15.0,
+      "image": "https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/sanitizer-300x300.jpg"
+    },
+    {
+      "id": 3,
+      "category": "juice",
+      "product_name": "Fresh Orange Juice",
+      "price": 31.0,
+      "image": "https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/orage-juice-kariz.jpg"
+    },
+    {
+      "id": 4,
+      "category": "grocieries",
+      "product_name": "Natural Extracted Edible Oil",
+      "price": 27.0,
+      "image": "https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/edible-oil.jpg"
+    }
+  ]
+}
