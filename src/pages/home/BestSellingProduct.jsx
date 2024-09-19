@@ -3,6 +3,7 @@ import SingleProduct from "../../components/SingleProduct";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+
 const BestSellingProduct = () => {
   const product = useSelector((state)=>state.products.products)
 
