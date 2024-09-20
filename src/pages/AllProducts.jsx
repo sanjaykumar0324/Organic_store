@@ -4,8 +4,7 @@ import SingleProduct from "../components/SingleProduct";
 import { useSelector } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
 
-// Spinner color can be managed with state if needed
-const spinnerColor = "black"; // Default spinner color
+const spinnerColor = "black"; 
 
 const AllProducts = () => {
   const { products, loading, error } = useSelector((state) => state.products);

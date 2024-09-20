@@ -8,7 +8,7 @@ export const getNavbarData = () => async (dispatch) => {
     dispatch({ type: GET_NAV_REQUEST });
     // console.log("Nava data request");
   
-    const navbarResponse = await axios.get("https://run.mocky.io/v3/1161da4c-3029-4419-9682-781c1d912b6c");
+    const navbarResponse = await axios.get("https://run.mocky.io/v3/085e1c09-ffb5-44a4-bb84-4e239000de71");
 
       // console.log("Nav data is fecthed")
     dispatch({type: GET_NAV_SUCCESS,

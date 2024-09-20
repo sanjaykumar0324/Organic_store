@@ -4,14 +4,19 @@ import ServiceCard from "./ServiceCard";
 import BestSellingProduct from "./BestSellingProduct";
 import FreshCard from "./FreshCard";
 import TrendingProducts from "./TrendingProducts";
+import CustomErrorBoundary from "../../components/ErrorBoundary";
 
 const Home = () => {
   return (
     <>
+    <CustomErrorBoundary>
+
       <Overview />
 
       {/* <ServiceCard /> */}
       <BestSellingProduct />
+      </CustomErrorBoundary>
+
 
       <div className="py-28 bg-[#F8F6F3] relative">
         <img
@@ -27,7 +32,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <CustomErrorBoundary>
       <TrendingProducts />
+      </CustomErrorBoundary>
     </>
   );
 };

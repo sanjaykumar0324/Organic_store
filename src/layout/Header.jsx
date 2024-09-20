@@ -1,31 +1,26 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useState, useEffect, useRef, useMemo } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserDataContext } from "../Providers/UserDataProvider";
 import ShoppingCart from "../components/ShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
-// import { fetchDataRequest } from "../Redux/actions/ProductActionBySaga";
-// import { fetchNavRequest } from "../Redux/actions/NavBarActionBySaga";
 import { getAllProductsData } from "../Redux/actions/ProductsAction";
 import { getNavbarData } from "../Redux/actions/NavbarAction";
 
 const Header = () => {
-  const [cartItems, setCartItems] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = useContext(UserDataContext);
   const navbar = useSelector((state) => state.navbar.navbar) || [];
-  const productsFromStore =
-    useSelector((state) => state.products.products) || [];
+  const productsFromStore = useSelector((state) => state.products.products) || [];
   const [menuHidden, setMenuHidden] = useState("hidden");
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllProductsData());
     dispatch(getNavbarData());
-  }, []);
+  }, [dispatch]);
 
-  useEffect(() => {
+  const { totalItems, totalPrice } = useMemo(() => {
     const cart = user.cart || [];
     let totalItems = 0;
     let total = 0;
@@ -42,8 +37,7 @@ const Header = () => {
       }
     });
 
-    setCartItems(totalItems);
-    setTotalPrice(total);
+    return { totalItems, totalPrice: total };
   }, [productsFromStore, user.cart]);
 
   const leftLinks = Array.isArray(navbar)
@@ -96,7 +90,7 @@ const Header = () => {
             alt="logo"
           />
         </Link>
-        <div className=" items-center gap-6 hidden lg:flex">
+        <div className="items-center gap-6 hidden lg:flex">
           {leftLinks.map((link) => (
             <NavLink
               key={link.id}
@@ -135,7 +129,7 @@ const Header = () => {
           <p className="text-lg font-bold">${totalPrice.toFixed(2)}</p>
           <div className="relative">
             <span className="absolute top-[-8px] right-[-10px] px-[6px] rounded-full bg-[#8BC34A] text-white text-sm">
-              {cartItems}
+              {totalItems}
             </span>
             <i className="fa-solid fa-basket-shopping fa-lg"></i>
           </div>
@@ -147,22 +141,18 @@ const Header = () => {
         <span
           className="lg:hidden "
           onClick={() => {
-            if (menuHidden === "hidden") {
-              setMenuHidden("block");
-            } else {
-              setMenuHidden("hidden");
-            }
+            setMenuHidden((prev) => (prev === "hidden" ? "block" : "hidden"));
           }}
         >
           Menu
         </span>
-        <div className={`${menuHidden} absolute right-0 top-24  bg-white`}>
+        <div className={`${menuHidden} absolute right-0 top-24 bg-white`}>
           <ul>
             <li>Everything</li>
             <li>Groceries</li>
-            <li>juice</li>
+            <li>Juice</li>
             <li>About</li>
-            <li>Contact </li>
+            <li>Contact</li>
           </ul>
         </div>
       </ul>

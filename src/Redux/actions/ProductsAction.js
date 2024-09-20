@@ -9,9 +9,8 @@ export const getAllProductsData = () => async (dispatch) => {
     // console.log("proudcts data request");
 
     const productsResponse = await axios.get(
-      "https://run.mocky.io/v3/1161da4c-3029-4419-9682-781c1d912b6c"
+      "https://run.mocky.io/v3/085e1c09-ffb5-44a4-bb84-4e239000de71"
     );
-
     console.log("products data fetched");
 
     dispatch({

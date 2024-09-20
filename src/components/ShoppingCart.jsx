@@ -1,12 +1,10 @@
 import React, { forwardRef, useContext } from "react";
 import Button from "./Button";
 import { UserDataContext } from "../Providers/UserDataProvider";
-// import { DataContext } from "../Providers/DataProvider";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 
 const ShoppingCart = forwardRef(({ isOverlayOpen, handleCartClick }, ref) => {
-  // const { data } = useContext(DataContext);
   const { user, removeItemFromCart } = useContext(UserDataContext);
   const product= useSelector((state)=>state.products.products)
   const products = product || [];
